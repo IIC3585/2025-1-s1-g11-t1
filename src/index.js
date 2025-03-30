@@ -11,6 +11,7 @@ import { parseCSV, serializeCSV } from './utils/parsing.js';
 import { swap, columndelete, insertcolumn } from './transformations/columns.js';
 import { rowdelete, insertrow } from './transformations/rows.js';
 import { rowstocolumns } from './transformations/transpose.js';
+import { sortByColumn } from './transformations/sort.js';
 import { tohtmltable } from './formatters/html.js';
 import { pipe } from './utils/functional.js';
 
@@ -21,12 +22,7 @@ Alice,25,London,UK
 Bob,35,Paris,France
 Carol,28,Tokyo,Japan`;
 
-console.log('\n=== Testing CSV Parsing and Serialization ===');
 const matrix = parseCSV(sampleCSV);
-console.log('Parsed Matrix:');
-console.log(matrix);
-console.log('\nRe-serialized CSV:');
-console.log(serializeCSV(matrix));
 
 console.log('\n=== Testing Column Operations ===');
 console.log('\nSwapping columns 1 and 3 (name and city):');
@@ -70,3 +66,13 @@ const transform = pipe(
   tohtmltable
 );
 console.log(transform(sampleCSV)); 
+
+
+console.log('\n=== Testing Function Composition with Sorting ===');
+console.log('\nPipeline: parse -> sort by column 2 (asc) -> convert to HTML');
+const transformation = pipe(
+  parseCSV,
+  sortByColumn(2, 'asc'),  // Ordena la tabla por la segunda columna de forma ascendente
+  tohtmltable
+);
+console.log(transformation(sampleCSV)); 

@@ -83,6 +83,7 @@ export const runCLI = async (args) => {
       console.log('  --delete-column <n>   Delete column n');
       console.log('  --transpose           Transpose the matrix');
       console.log('  --to-html            Convert to HTML');
+      console.log('  --show-browser       Show table in browser');
       console.log('  --output <path>      Specify output file path');
       process.exit(1);
     }
@@ -107,6 +108,9 @@ export const runCLI = async (args) => {
         case '--to-html':
           options.toHtml = true;
           break;
+        case '--show-browser':
+          options.showBrowser = true;
+          break;
         case '--output':
           options.outputPath = args[++i];
           break;
@@ -118,6 +122,12 @@ export const runCLI = async (args) => {
 
     // Process the CSV file
     const result = await processCSV(inputPath, options);
+
+    // If show browser is requested, display the table
+    if (options.showBrowser) {
+      const matrix = parseCSV(result);
+      await showInBrowser(matrix);
+    }
 
     // Determine output path
     const outputPath = options.outputPath || getDefaultOutputPath(inputPath, options.toHtml);
