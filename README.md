@@ -122,6 +122,16 @@ npm install
 npm run dev
 ```
 
+## Testing
+
+This project uses Jest for unit testing. A sample test suite covering parsing, transformations, and formatting functions is provided.
+
+### Run the tests:
+
+```bash
+npm run test
+```
+
 ## Technologies
 
 - Vue.js 3 (Composition API)
