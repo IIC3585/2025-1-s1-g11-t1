@@ -1,0 +1,298 @@
+:root {
+  --primary-dark: #015ad7;
+  --primary: #015ad7;
+  --primary-light: #a0c8ff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6c757d;
+  --surface-ground: #f2f7fa;
+  --surface-section: #fffefe;
+  --surface-border: #e9ecef;
+  --surface-hover: #f2f7fa;
+  --primary-50: rgba(1, 90, 215, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--surface-ground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-header {
+  background-color: white;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--surface-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-title i {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.layout-main {
+  flex: 1;
+  padding: 2rem 0;
+  background-color: #f8f9fa;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.welcome-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.welcome-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.layout-footer {
+  background-color: var(--surface-ground);
+  color: var(--text-secondary);
+  padding: 1rem 0;
+  margin-top: auto;
+  border-top: 1px solid var(--surface-border);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer-content i {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+/* PrimeVue overrides */
+:deep(.p-card) {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: none;
+  background: white;
+}
+
+:deep(.p-card .p-card-title) {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+:deep(.p-button) {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  height: 2.5rem;
+}
+
+:deep(.p-button.p-button-primary) {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+:deep(.p-button.p-button-primary:hover) {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+:deep(.p-button.p-button-danger) {
+  background: #dc3545;
+  border-color: #dc3545;
+}
+
+:deep(.p-button.p-button-danger:hover) {
+  background: #c82333;
+  border-color: #bd2130;
+}
+
+:deep(.p-fileupload .p-fileupload-buttonbar) {
+  background: var(--surface-section);
+  border: 2px dashed var(--surface-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+:deep(.p-fileupload .p-fileupload-buttonbar .p-button) {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+:deep(.p-fileupload .p-fileupload-buttonbar .p-button:hover) {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+:deep(.p-message) {
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+:deep(.p-datatable-table) {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+:deep(.p-datatable-table th) {
+  background: white;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--surface-border);
+}
+
+:deep(.p-datatable-table th:hover) {
+  background: var(--surface-hover);
+  color: var(--primary);
+}
+
+:deep(.p-datatable-table td) {
+  color: var(--text-secondary);
+  padding: 1rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+
+:deep(.p-datatable-table tr:hover) {
+  background: var(--surface-hover);
+}
+
+:deep(.p-datatable-table tr.selected) {
+  background: var(--primary-50);
+}
+
+/* PrimeVue Component Customizations */
+.p-component {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.p-button {
+  font-weight: 500;
+}
+
+.p-button.p-button-sm {
+  font-size: 0.875rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.p-panel .p-panel-header {
+  padding: 1rem 1.25rem;
+}
+
+.p-panel .p-panel-content {
+  padding: 1.25rem;
+}
+
+.p-datatable .p-datatable-header {
+  background: transparent;
+  border: none;
+  padding: 1.25rem;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--surface-section);
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 1rem;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--surface-hover);
+}
+
+.p-toolbar {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.p-fileupload .p-fileupload-buttonbar {
+  background: transparent;
+  border: none;
+  padding: 1.25rem;
+}
+
+.p-fileupload .p-fileupload-content {
+  padding: 1.25rem;
+} 
