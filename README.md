@@ -195,6 +195,10 @@ export const rowstocolumns = (matrix) => {
 };
 ```
 
+## Citation
+
+This project was documented and developed with assistance from ChatGPT for structuring content, refining explanations, and improving clarity.
+
 ## Authors
 
 Manuel Espinoza
